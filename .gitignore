@@ -1,0 +1,10 @@
+# secrets: NEVER commit
+.streamlit/secrets.toml
+.env
+
+# big or licensed data (users download from Kaggle, see README)
+data/
+
+# python junk
+__pycache__/
+*.pyc
