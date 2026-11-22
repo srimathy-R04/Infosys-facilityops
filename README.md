@@ -6,7 +6,11 @@ This repository contains Milestone 1 (Energy Intelligence & Monitoring) of the A
 
 The system loads real hourly electricity data for four campus buildings, checks the data quality, detects abnormal consumption, forecasts the next week's demand, shows everything on an interactive dashboard, and answers questions through an Energy Agent chatbot.
 
-[Energy dashboard](Screenshots/energy.png) ![Maintenance preview](Screenshots/maintenance.png) ![Energy agent](Screenshots/Agent.png)
+![Energy dashboard](Screenshots/energy.png)
+
+![Maintenance preview](Screenshots/maintenance.png)
+
+![Energy agent](Screenshots/Agent.png)
 Milestone 1 coverage
 Requirement in the project brief	What was built	Where
 Integrate utility and IoT data	Real hourly electricity meter data (Kaggle ASHRAE), four buildings named Block A to D, with a data-quality check for stuck meters	prep_kaggle.py, anomaly.py
