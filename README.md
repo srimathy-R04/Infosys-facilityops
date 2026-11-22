@@ -148,6 +148,6 @@ Milestone	Focus	Status
 2 (Weeks 3-4)	Predictive Maintenance System	Early preview (simulated data)
 3 (Weeks 5-6)	Occupancy & Security Intelligence	Planned
 4 (Weeks 7-8)	Cost Optimization & Enterprise Deployment	Planned
-Author
 
+# Author
 Srimathy R, Infosys Springboard internship project.
