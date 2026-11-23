@@ -8,4 +8,4 @@ data/
 # python junk
 __pycache__/
 *.pyc
-maintenance_data/
+maintenance_data/models/*.joblib
