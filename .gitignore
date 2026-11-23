@@ -9,3 +9,4 @@ data/
 __pycache__/
 *.pyc
 maintenance_data/models/*.joblib
+models/*.joblib
