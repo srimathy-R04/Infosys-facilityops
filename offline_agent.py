@@ -21,7 +21,7 @@ PATTERNS = {
     "peak": r"\bpeak|busiest|rush|maximum demand",
     "saving": r"\bsav(e|ing|ings)\b|reduc\w*|\bcut\b|lower|decrease",
     "orders": r"work\s?orders?|maintenance orders?|\borders?\b|to-?do",
-    "risk": r"high[- ]?risk|critical|urgent|attention|at risk|priorit\w+|fail\w*|breakdown|inspect\w*|danger|worst",
+    "risk": r"high[- ]?risk|critical|urgent|immediate|needs? maintenance|attention|at risk|priorit\w+|fail\w*|breakdown|inspect\w*|danger|worst",
     "equipment": r"equipment|\basset|maintenance|health|\blifts?\b|generators?|hvac|elevator|machine",
     "anomaly": r"anomal|unusual|spike|abnormal|outlier|\bodd\b|weird|suspicious|irregular",
     "carbon": r"carbon|co2|emission|footprint|green ?house",
@@ -396,16 +396,57 @@ class OfflineAgent(SmartEnergyAgent):
 
     def _h_risk(self, ctx):
         d = self.asset_health_tool(kind=ctx["kind"], only_high_risk=True)
+
         if isinstance(d, dict):
             allr = self.asset_health_tool(kind=ctx["kind"])
             watch = sorted(allr, key=lambda x: -x["risk"])[:3]
-            return ("No assets are above the 50% risk threshold. Closest to it:\n\n"
-                    + md_table(["Asset", "Risk", "Health"], [[a["asset"], f"{a['risk']:.0%}", a["health_score"]] for a in watch]))
-        rows = [[a["asset"], f"{a['risk']:.0%}", a["health_score"], a["recommendation"]]
-                for a in sorted(d, key=lambda x: -x["risk"])]
-        return (f"**{len(d)} asset(s) need attention**, ordered by risk:\n\n"
-                + md_table(["Asset", "Risk (7 days)", "Health", "Recommendation"], rows)
-                + "\n\n_Based on simulated maintenance data._")
+
+            return (
+                "No assets are above the 50% risk threshold.\n\n"
+                "Assets closest to the threshold:\n\n"
+                + md_table(
+                    ["Asset", "Risk", "Health", "Recommendation"],
+                    [[a["asset"], f"{a['risk']:.0%}",
+                    a["health_score"], a["recommendation"]]
+                    for a in watch]
+                )
+            )
+
+        rows = [
+            [
+                a["asset"],
+                f"{a['risk']:.0%}",
+                a["health_score"],
+                f"{a['temperature']} C",
+                f"{a['vibration']} mm/s",
+                a["recommendation"]
+            ]
+            for a in sorted(d, key=lambda x: -x["risk"])
+        ]
+
+        answer = (
+            f"**{len(d)} asset(s) need maintenance attention.**\n\n"
+            + md_table(
+                ["Asset", "Failure risk", "Health",
+                "Temperature", "Vibration", "Recommendation"],
+                rows
+            )
+        )
+
+        answer += (
+            "\n\n**Why are these assets flagged?**\n"
+            "The Random Forest model analyses temperature and vibration "
+            "deviations from each asset's normal baseline, their recent "
+            "moving averages and vibration trends. It uses these patterns "
+            "to estimate failure risk within the next 7 days.\n\n"
+            "Assets with risk >= 50% receive High priority and an inspection "
+            "recommendation within 3 days. This is a model-based warning, "
+            "not confirmation of an actual equipment fault.\n\n"
+            "_Based on simulated campus sensor data._"
+        )
+
+        return answer
+
 
     def _h_equipment(self, ctx):
         d = self.asset_health_tool(kind=ctx["kind"])
@@ -414,13 +455,13 @@ class OfflineAgent(SmartEnergyAgent):
         counts = pd.Series([a["status"] for a in d]).value_counts().to_dict()
         worst = sorted(d, key=lambda x: x["health_score"])[:5]
         return (f"**{len(d)} {(ctx['kind'].lower() + 's') if ctx['kind'] and ctx['kind'] != 'HVAC' else (ctx['kind'] + ' units') if ctx['kind'] else 'assets'}** monitored: "
-                + ", ".join(f"{v} {k}" for k, v in counts.items()) + ".\n\nLowest health:\n\n"
-                + md_table(["Asset", "Status", "Health", "Risk"], [[a["asset"], a["status"], a["health_score"], f"{a['risk']:.0%}"] for a in worst])
-                + "\n\n_Based on simulated maintenance data._")
+                    + ", ".join(f"{v} {k}" for k, v in counts.items()) + ".\n\nLowest health:\n\n"
+                    + md_table(["Asset", "Status", "Health", "Risk"], [[a["asset"], a["status"], a["health_score"], f"{a['risk']:.0%}"] for a in worst])
+                    + "\n\n_Based on simulated maintenance data._")
 
     def _h_orders(self, ctx):
         o = self.maintenance_orders()
         if not o:
             return "There are no open work orders."
         return f"**{len(o)} open work orders:**\n\n" + md_table(
-            ["Asset", "Priority", "Work order"], [[x["asset"], x["priority"], x["work_order"]] for x in o])
+                ["Asset", "Priority", "Work order"], [[x["asset"], x["priority"], x["work_order"]] for x in o])

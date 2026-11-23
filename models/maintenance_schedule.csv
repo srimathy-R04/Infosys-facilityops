@@ -1,0 +1,101 @@
+engine,actual_RUL,predicted_RUL,health_score,status,recommendation,priority,maintenance_action,recommended_schedule,maintenance_alert
+34,7,6.6,5.28,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 34 needs immediate inspection.
+81,8,7.2,5.76,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 81 needs immediate inspection.
+35,11,7.3,5.84,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 35 needs immediate inspection.
+82,9,8.9,7.12,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 82 needs immediate inspection.
+56,15,13.1,10.48,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 56 needs immediate inspection.
+76,10,13.6,10.88,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 76 needs immediate inspection.
+66,14,15.9,12.72,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 66 needs immediate inspection.
+100,20,16.2,12.96,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 100 needs immediate inspection.
+68,8,18.0,14.4,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 68 needs immediate inspection.
+49,21,18.6,14.88,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 49 needs immediate inspection.
+24,20,20.3,16.24,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 24 needs immediate inspection.
+92,20,21.4,17.12,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 92 needs immediate inspection.
+31,8,22.3,17.84,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 31 needs immediate inspection.
+42,10,23.1,18.48,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 42 needs immediate inspection.
+20,16,23.2,18.56,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 20 needs immediate inspection.
+36,19,23.7,18.96,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 36 needs immediate inspection.
+40,28,27.7,22.16,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 40 needs immediate inspection.
+91,38,29.2,23.36,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 91 needs immediate inspection.
+77,34,29.6,23.68,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 77 needs immediate inspection.
+52,29,29.7,23.76,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 52 needs immediate inspection.
+53,26,34.4,27.52,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 53 needs immediate inspection.
+90,28,41.2,32.96,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 90 needs immediate inspection.
+64,28,45.4,36.32,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 64 needs immediate inspection.
+32,48,47.0,37.6,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 32 needs immediate inspection.
+61,21,47.3,37.84,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 61 needs immediate inspection.
+46,47,48.6,38.88,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 46 needs immediate inspection.
+38,50,48.8,39.04,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 38 needs immediate inspection.
+37,21,49.5,39.6,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 37 needs immediate inspection.
+94,55,49.6,39.68,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 94 needs immediate inspection.
+84,58,49.7,39.76,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 84 needs immediate inspection.
+58,37,51.0,40.8,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 58 needs immediate inspection.
+93,85,52.8,42.24,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 93 needs immediate inspection.
+17,50,53.0,42.4,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 17 needs immediate inspection.
+3,69,55.2,44.16,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 3 needs immediate inspection.
+63,72,58.0,46.4,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 63 needs immediate inspection.
+18,28,58.3,46.64,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 18 needs immediate inspection.
+62,54,59.9,47.92,Critical,Prioritize maintenance inspection,High,Immediate inspection and maintenance,Within 1 day,URGENT: Engine 62 needs immediate inspection.
+41,18,63.6,50.88,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 41 needs preventive maintenance.
+43,59,64.6,51.68,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 43 needs preventive maintenance.
+21,57,65.1,52.08,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 21 needs preventive maintenance.
+72,50,66.9,53.52,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 72 needs preventive maintenance.
+45,114,69.9,55.92,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 45 needs preventive maintenance.
+8,95,70.0,56.0,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 8 needs preventive maintenance.
+30,115,72.6,58.08,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 30 needs preventive maintenance.
+11,97,72.9,58.32,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 11 needs preventive maintenance.
+4,82,75.9,60.72,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 4 needs preventive maintenance.
+80,90,76.6,61.28,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 80 needs preventive maintenance.
+86,89,77.0,61.6,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 86 needs preventive maintenance.
+70,94,79.0,63.2,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 70 needs preventive maintenance.
+98,59,79.0,63.2,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 98 needs preventive maintenance.
+97,82,80.1,64.08,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 97 needs preventive maintenance.
+57,103,80.2,64.16,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 57 needs preventive maintenance.
+51,114,81.5,65.2,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 51 needs preventive maintenance.
+74,126,85.1,68.08,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 74 needs preventive maintenance.
+60,100,87.8,70.24,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 60 needs preventive maintenance.
+28,97,88.9,71.12,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 28 needs preventive maintenance.
+6,93,92.5,74.0,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 6 needs preventive maintenance.
+79,63,93.3,74.64,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 79 needs preventive maintenance.
+12,124,93.8,75.04,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 12 needs preventive maintenance.
+13,95,94.0,75.2,Warning,Schedule preventive maintenance,Medium,Schedule preventive maintenance,Within 7 days,WARNING: Engine 13 needs preventive maintenance.
+29,90,102.4,81.92,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 29 is healthy. Continue monitoring.
+16,84,103.4,82.72,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 16 is healthy. Continue monitoring.
+89,136,105.2,84.16,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 89 is healthy. Continue monitoring.
+5,91,105.3,84.24,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 5 is healthy. Continue monitoring.
+27,66,109.7,87.76,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 27 is healthy. Continue monitoring.
+7,91,112.0,89.6,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 7 is healthy. Continue monitoring.
+19,87,113.1,90.48,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 19 is healthy. Continue monitoring.
+47,135,114.7,91.76,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 47 is healthy. Continue monitoring.
+10,96,118.1,94.48,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 10 is healthy. Continue monitoring.
+50,79,121.1,96.88,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 50 is healthy. Continue monitoring.
+75,113,121.8,97.44,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 75 is healthy. Continue monitoring.
+48,92,122.2,97.76,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 48 is healthy. Continue monitoring.
+55,137,124.2,99.36,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 55 is healthy. Continue monitoring.
+1,112,173.8,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 1 is healthy. Continue monitoring.
+2,98,155.2,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 2 is healthy. Continue monitoring.
+9,111,145.3,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 9 is healthy. Continue monitoring.
+14,107,153.3,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 14 is healthy. Continue monitoring.
+15,83,165.7,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 15 is healthy. Continue monitoring.
+22,111,167.8,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 22 is healthy. Continue monitoring.
+23,113,150.1,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 23 is healthy. Continue monitoring.
+25,145,149.1,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 25 is healthy. Continue monitoring.
+26,119,125.4,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 26 is healthy. Continue monitoring.
+33,106,133.5,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 33 is healthy. Continue monitoring.
+39,142,159.2,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 39 is healthy. Continue monitoring.
+44,109,138.6,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 44 is healthy. Continue monitoring.
+54,97,134.2,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 54 is healthy. Continue monitoring.
+59,114,153.8,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 59 is healthy. Continue monitoring.
+65,128,153.0,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 65 is healthy. Continue monitoring.
+67,77,146.5,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 67 is healthy. Continue monitoring.
+69,121,144.3,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 69 is healthy. Continue monitoring.
+71,118,153.6,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 71 is healthy. Continue monitoring.
+73,131,142.9,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 73 is healthy. Continue monitoring.
+78,107,160.2,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 78 is healthy. Continue monitoring.
+83,137,126.2,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 83 is healthy. Continue monitoring.
+85,118,173.4,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 85 is healthy. Continue monitoring.
+87,116,147.4,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 87 is healthy. Continue monitoring.
+88,115,137.7,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 88 is healthy. Continue monitoring.
+95,128,134.2,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 95 is healthy. Continue monitoring.
+96,137,146.4,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 96 is healthy. Continue monitoring.
+99,117,135.6,100.0,Healthy,Continue regular monitoring,Low,Routine monitoring,Within 30 days,INFO: Engine 99 is healthy. Continue monitoring.

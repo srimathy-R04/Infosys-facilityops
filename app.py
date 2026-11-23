@@ -84,6 +84,18 @@ def energy_data():
 def maintenance_data():
     return maintenance.run()
 
+@st.cache_data
+def predictive_maintenance_data():
+    health_path = "models/engine_health_scores.csv"
+    schedule_path = "models/maintenance_schedule.csv"
+
+    if not os.path.exists(health_path) or not os.path.exists(schedule_path):
+        return None
+
+    return {
+        "health": pd.read_csv(health_path),
+        "schedule": pd.read_csv(schedule_path)
+    }
 
 df = energy_data()
 
@@ -99,7 +111,12 @@ with st.sidebar:
         f'Anomaly accuracy is measured on planted spikes.<br><br>'
         f'Maintenance data is simulated.</div>', unsafe_allow_html=True)
 
-tab1, tab2, tab3 = st.tabs(["Energy", "Maintenance", "Ask the Agent"])
+tab1, tab2, tab3, tab4 = st.tabs([
+    "Energy",
+    "Maintenance",
+    "Ask the Agent",
+    "NASA Predictive Maintenance"
+])
 
 # ------------------------------------------------------------------ tab 1: energy
 with tab1:
@@ -216,7 +233,13 @@ with tab3:
     if prompt:
         with st.chat_message("user"):
             st.markdown(prompt)
-        bot = gemini_agent.GeminiAgent(df, tariff, co2, maintenance_data=maintenance_data())
+        bot = gemini_agent.GeminiAgent(
+            df,
+            tariff,
+            co2,
+            maintenance_data=maintenance_data(),
+            predictive_maintenance_data=predictive_maintenance_data()
+        )
         with st.chat_message("assistant"):
             with st.spinner("Analysing your data..."):
                 answer = bot.ask(prompt, st.session_state.chat)
@@ -227,3 +250,146 @@ with tab3:
     if st.session_state.chat and st.button("Clear conversation"):
         st.session_state.chat = []
         st.rerun()
+
+
+# ------------------------------------------------------------------
+# tab 4: NASA predictive maintenance
+with tab4:
+    st.markdown("### NASA Turbofan Predictive Maintenance")
+    st.caption(
+        "Engine degradation analysis using NASA C-MAPSS FD001 dataset "
+        "and Random Forest RUL predictions."
+    )
+
+    nasa_data = predictive_maintenance_data()
+
+    if nasa_data is None:
+        st.warning(
+            "NASA predictive-maintenance files are missing. "
+            "Run src/health_scoring.py and src/maintenance_scheduler.py first."
+        )
+    else:
+        health = nasa_data["health"].copy()
+        schedule = nasa_data["schedule"].copy()
+
+        healthy_count = int((health["status"] == "Healthy").sum())
+        warning_count = int((health["status"] == "Warning").sum())
+        critical_count = int((health["status"] == "Critical").sum())
+
+        # Summary metrics
+        st.markdown("#### Engine Health Overview")
+        c1, c2, c3, c4 = st.columns(4)
+
+        kpi(c1, "Total engines", len(health), "NASA FD001 test engines")
+        kpi(c2, "Healthy", healthy_count, "Health score >= 80")
+        kpi(c3, "Warning", warning_count, "Health score 50–79", "warn")
+        kpi(c4, "Critical", critical_count, "Health score below 50", "bad")
+
+        st.write("")
+
+        # Health distribution chart
+        left, right = st.columns(2)
+
+        status_counts = health["status"].value_counts().reset_index()
+        status_counts.columns = ["Status", "Engines"]
+
+        left.plotly_chart(
+            style(px.pie(
+                status_counts,
+                names="Status",
+                values="Engines",
+                hole=0.55,
+                title="Engine Health Distribution",
+                color="Status",
+                color_discrete_map={
+                    "Healthy": "#34d399",
+                    "Warning": "#fbbf24",
+                    "Critical": "#f87171"
+                }
+            )),
+            use_container_width=True
+        )
+
+        # Maintenance priority chart
+        priority_counts = schedule["priority"].value_counts().reindex(
+            ["High", "Medium", "Low"], fill_value=0
+        ).reset_index()
+        priority_counts.columns = ["Priority", "Engines"]
+
+        right.plotly_chart(
+            style(px.bar(
+                priority_counts,
+                x="Priority",
+                y="Engines",
+                title="Maintenance Priority Distribution",
+                color="Priority",
+                color_discrete_map={
+                    "High": "#f87171",
+                    "Medium": "#fbbf24",
+                    "Low": "#34d399"
+                },
+                text_auto=True
+            )),
+            use_container_width=True
+        )
+
+        # Individual engine details
+        section("Individual Engine Health", "Select an engine to inspect its prediction.")
+
+        engine_ids = sorted(health["engine"].astype(int).unique())
+        selected_engine = st.selectbox(
+            "Select Engine ID",
+            engine_ids,
+            key="nasa_engine_select"
+        )
+
+        engine = health[health["engine"] == selected_engine].iloc[0]
+
+        a, b, c = st.columns(3)
+        kpi(a, "Engine status", engine["status"])
+        kpi(b, "Predicted RUL", f"{engine['predicted_RUL']:.2f} cycles")
+        kpi(c, "Health score", f"{engine['health_score']:.2f}/100")
+
+        if "actual_RUL" in engine.index:
+            st.metric("Actual RUL (reference)", f"{engine['actual_RUL']} cycles")
+
+        if "recommendation" in engine.index:
+            st.info(f"Recommendation: {engine['recommendation']}")
+
+        # Full engine table
+        section("All Engine Predictions", "Sorted by lowest predicted RUL first.")
+
+        display_columns = [
+            col for col in [
+                "engine", "predicted_RUL", "actual_RUL",
+                "health_score", "status", "recommendation"
+            ] if col in health.columns
+        ]
+
+        st.dataframe(
+            health[display_columns].sort_values("predicted_RUL"),
+            use_container_width=True,
+            hide_index=True
+        )
+
+        # Maintenance schedule
+        section("NASA Maintenance Schedule", "Rule-based maintenance priorities.")
+
+        schedule_columns = [
+            col for col in [
+                "engine", "health_score", "priority",
+                "action", "recommended_schedule"
+            ] if col in schedule.columns
+        ]
+
+        st.dataframe(
+            schedule[schedule_columns].sort_values("health_score"),
+            use_container_width=True,
+            hide_index=True
+        )
+
+        st.caption(
+            "Note: Health thresholds and maintenance timelines are "
+            "project-defined heuristics, not official NASA standards "
+            "or exact failure dates."
+        )

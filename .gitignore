@@ -8,3 +8,4 @@ data/
 # python junk
 __pycache__/
 *.pyc
+maintenance_data/

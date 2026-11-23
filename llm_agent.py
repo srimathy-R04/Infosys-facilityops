@@ -3,6 +3,7 @@ Falls back to the old keyword agent if there is no API key or the API fails.
 
 Needs:  pip install anthropic     and     set ANTHROPIC_API_KEY=your_key
 Optional: set FACILITYOPS_MODEL=claude-sonnet-5-5   (default)
+
 """
 import json
 import os
@@ -43,7 +44,17 @@ Rules:
 - If the user's message is a statement and not a question, check it with a tool and answer neutrally; do not just agree.
 - If a question is ambiguous (e.g. 'last month' when data ends earlier), say which dates you used.
 - If the question is unrelated to energy or maintenance, say so briefly and steer back.
-- Use the conversation history to resolve follow-ups like 'and for Block C?'."""
+- Use the conversation history to resolve follow-ups like 'and for Block C?'.
+- NASA C-MAPSS predictive maintenance data is separate from campus maintenance data.
+  It represents turbofan engine degradation, not campus lifts, generators or HVAC units.
+- Use the NASA tools for questions about engine health, engine IDs, predicted RUL,
+  engine status and NASA maintenance schedules.
+- Use the existing campus maintenance tools for simulated lifts, generators and HVAC units.
+- The NASA health score and maintenance schedule are project-defined heuristics.
+  They are not official NASA health standards, calibrated failure probabilities,
+  or exact failure dates.
+- Never mix NASA engine results with campus asset results.
+"""
 
 TOOLS = [
     {"name": "data_overview",
